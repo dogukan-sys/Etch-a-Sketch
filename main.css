@@ -20,7 +20,9 @@ header{
 
 .content{
   display: flex;
-  padding: 10vw;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  padding-top: 8vw;
   gap: 50px;
   justify-content: center;
   flex-wrap: wrap-reverse ;
@@ -116,4 +118,29 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0px;
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding-bottom: 12px;
+  font-size: 20px;
+  transition: ease-in-out;  
+}
+
+footer:hover{
+  font-weight: bolder;
+  letter-spacing: 1px;
+}
+
+a{  
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
 }
