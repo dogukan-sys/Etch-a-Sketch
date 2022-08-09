@@ -16,4 +16,24 @@ function createGrid(rows, columns){
   document.body.appendChild(container)
 }
 
-createGrid(64,64)
+createGrid(16,16)
+
+ 
+const rows = document.querySelectorAll(".row")
+
+var mouseDown = 0
+document.body.onmousedown = function(){
+  mouseDown++
+}
+document.body.onmouseup = function(){
+  mouseDown--
+}
+
+
+
+rows.forEach(row => row.addEventListener('mouseover', () =>{
+  if(!mouseDown){
+    return
+  }
+  row.classList.add('active')
+}))
