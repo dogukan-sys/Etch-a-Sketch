@@ -1,3 +1,5 @@
+var color = "black"
+
 const grid = document.createElement("div");
 grid.className = "grid" 
 const content = document.querySelector('.content')
@@ -23,9 +25,17 @@ document.body.onmouseup = function(){
 }
 gridElements.forEach(element => element.addEventListener('mouseover', () =>{
   if(mouseDown){
-    element.style.backgroundColor = "black"
+    element.style.backgroundColor = color
   }
   element.onmousedown = function(){
-    element.style.backgroundColor = "black"
+    element.style.backgroundColor = color
   }
 }))
+
+const clear = document.querySelector('.clear')
+clear.addEventListener('click', clearGrid)
+function clearGrid(){
+  gridElements.forEach((element) => {
+    element.style.backgroundColor = '#dde5ed'
+  })
+}
