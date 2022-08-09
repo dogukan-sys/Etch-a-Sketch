@@ -6,22 +6,26 @@ function getRandomColor(){
   return `#${randomColor}`
 }
 
-const grid = document.createElement("div");
+function getGrids(){
+  gridElements = document.querySelectorAll('.grid-element')
+}
+
+var grid = document.createElement("div");
 grid.className = "grid" 
 const content = document.querySelector('.content')
 function createGrid(size){
   grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
   grid.style.gridTemplateelements = `repeat(${size}, 1fr)`
   for(i=0;i< size*size ;i++){
-    const gridElement = document.createElement('div')
+    var gridElement = document.createElement('div')
     gridElement.className = 'grid-element'
     grid.appendChild(gridElement)
   }
   content.appendChild(grid)
 }
-createGrid(32)
+createGrid(16)
 
-const gridElements = document.querySelectorAll(".grid-element")
+var gridElements = document.querySelectorAll(".grid-element")
 var mouseDown = 0
 document.body.onmousedown = function(){
   mouseDown++
@@ -29,7 +33,8 @@ document.body.onmousedown = function(){
 document.body.onmouseup = function(){
   mouseDown--
 }
-gridElements.forEach(element => element.addEventListener('mouseover', () =>{
+
+var coloring = gridElements.forEach(element => element.addEventListener('mouseover', () =>{
   if (eraserMode) {
     if(mouseDown){
       element.style.backgroundColor = "rgb(221, 229, 237)"
@@ -96,5 +101,36 @@ rainbowButton.addEventListener('click', () => {
   } else {
     rainbowMode = false
   }
-  
+})
+
+const gridSizeBtn = document.querySelector('.grid-size')
+gridSizeBtn.addEventListener('change', () =>{
+  grid.innerHTML = ''
+  createGrid(gridSizeBtn.value)
+  getGrids()
+  coloring = gridElements.forEach(element => element.addEventListener('mouseover', () =>{
+    if (eraserMode) {
+      if(mouseDown){
+        element.style.backgroundColor = "rgb(221, 229, 237)"
+      }
+      element.onmousedown = function(){
+        element.style.backgroundColor = "rgb(221, 229, 237)"
+      }
+      return
+    } else if (rainbowMode){
+      if(mouseDown){
+        element.style.backgroundColor = getRandomColor()
+      }
+      element.onmousedown = function(){
+        element.style.backgroundColor = getRandomColor()
+      }
+      return
+    } 
+    if(mouseDown){
+      element.style.backgroundColor = color
+    }
+    element.onmousedown = function(){
+      element.style.backgroundColor = color
+    }
+  }))
 })
