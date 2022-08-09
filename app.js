@@ -46,9 +46,13 @@ function clearGrid(){
 }
 
 const colorPicker = document.querySelector('.color-picker')
-console.log(colorPicker)
 colorPicker.value = "#3e5d58"
+colorPicker.style.backgroundColor = '#3e5d58'
 colorPicker.addEventListener('change', () =>{
   color = colorPicker.value
-  console.log(color)
+  colorPicker.style.backgroundColor = colorPicker.value
+})
+colorPicker.addEventListener('click', () => {
+  color = colorPicker.value
+  colorPicker.style.backgroundColor = colorPicker.value
 })
