@@ -32,6 +32,11 @@ gridElements.forEach(element => element.addEventListener('mouseover', () =>{
   }
 }))
 
+
+const eraser = document.querySelector('.eraser')
+eraser.addEventListener('click', () =>{
+  color = '#dde5ed'
+})
 const clear = document.querySelector('.clear')
 clear.addEventListener('click', clearGrid)
 function clearGrid(){
