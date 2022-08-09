@@ -1,6 +1,6 @@
 const grid = document.createElement("div");
 grid.className = "grid" 
-
+const content = document.querySelector('.content')
 function createGrid(size){
   grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
   grid.style.gridTemplateelements = `repeat(${size}, 1fr)`
@@ -9,9 +9,9 @@ function createGrid(size){
     gridElement.className = 'grid-element'
     grid.appendChild(gridElement)
   }
-  document.body.appendChild(grid)
+  content.appendChild(grid)
 }
-createGrid(16)
+createGrid(64)
 
 const gridElements = document.querySelectorAll(".grid-element")
 var mouseDown = 0
