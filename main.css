@@ -9,13 +9,21 @@ body{
   background-color: rgba(123, 156, 152);
 }
 
+header{
+  background-color: #3e5d58CC;
+  font-weight: 700;
+  color: rgba(221, 229, 237);
+  padding: 25px;
+  text-align: center;
+  font-size: 40px
+}
+
 .content{
   display: flex;
   padding: 10vw;
   gap: 50px;
   justify-content: center;
   flex-wrap: wrap-reverse ;
-  position: relative;
 }
 
 .menu{
