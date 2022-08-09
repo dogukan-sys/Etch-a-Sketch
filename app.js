@@ -1,26 +1,19 @@
-const container = document.createElement("div");
-container.className = "container"
+const grid = document.createElement("div");
+grid.className = "grid" 
 
-function createGrid(rows, columns){
-  for (i = 1 ; i <= columns ; i++){
-    var column = document.createElement('div')
-    column.className = `column column-${i}`
-    for (j = 1 ; j <= rows ; j++) {
-      var row = document.createElement('div')
-      row.className = `row row-${j}`
-      row.textContent = ` `
-      column.appendChild(row)
-    }
-    container.appendChild(column)
+function createGrid(size){
+  grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
+  grid.style.gridTemplateelements = `repeat(${size}, 1fr)`
+  for(i=0;i< size*size ;i++){
+    const gridElement = document.createElement('div')
+    gridElement.className = 'grid-element'
+    grid.appendChild(gridElement)
   }
-  document.body.appendChild(container)
+  document.body.appendChild(grid)
 }
+createGrid(16)
 
-createGrid(16,16)
-
- 
-const rows = document.querySelectorAll(".row")
-
+const gridElements = document.querySelectorAll(".grid-element")
 var mouseDown = 0
 document.body.onmousedown = function(){
   mouseDown++
@@ -28,12 +21,11 @@ document.body.onmousedown = function(){
 document.body.onmouseup = function(){
   mouseDown--
 }
-
-
-
-rows.forEach(row => row.addEventListener('mouseover', () =>{
-  if(!mouseDown){
-    return
+gridElements.forEach(element => element.addEventListener('mouseover', () =>{
+  if(mouseDown){
+    element.style.backgroundColor = "black"
   }
-  row.classList.add('active')
+  element.onmousedown = function(){
+    element.style.backgroundColor = "black"
+  }
 }))
