@@ -109,6 +109,7 @@ gridSizeBtn.addEventListener('change', () =>{
   createGrid(gridSizeBtn.value)
   getGrids()
   coloring = gridElements.forEach(element => element.addEventListener('mouseover', () =>{
+    
     if (eraserMode) {
       if(mouseDown){
         element.style.backgroundColor = "rgb(221, 229, 237)"
