@@ -5,7 +5,9 @@
   transition: 0.2s ease-in-out; 
 }
 
-body{
+html,body{
+  margin: 0;
+  height: 100%;
   background-color: rgba(123, 156, 152);
 }
 
@@ -19,6 +21,7 @@ header{
 }
 
 .content{
+  flex: 1;
   display: flex;
   padding-left: 10vw;
   padding-right: 10vw;
@@ -48,8 +51,8 @@ header{
   box-shadow: 10px 10px 10px rgb(0 0 0 / 35%);
 }
 
-.grid{  
-  flex-shrink: 0  ;
+.grid{
+  flex: 0w 1 auto;  
   display: grid;
   width: 700px;
   height: 700px;
@@ -120,24 +123,6 @@ input::-webkit-inner-spin-button {
   margin: 0px;
 }
 
-footer{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-  padding-bottom: 12px;
-  font-size: 20px;
-  transition: ease-in-out;  
-}
-
-footer:hover{
-  font-weight: bolder;
-  letter-spacing: 1px;
-}
 
 a{  
   font-weight: bold;
