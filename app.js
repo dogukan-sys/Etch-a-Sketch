@@ -30,15 +30,7 @@ document.body.onmouseup = function(){
   mouseDown--
 }
 gridElements.forEach(element => element.addEventListener('mouseover', () =>{
-  if (rainbowMode){
-    if(mouseDown){
-      element.style.backgroundColor = getRandomColor()
-    }
-    element.onmousedown = function(){
-      element.style.backgroundColor = getRandomColor()
-    }
-    return
-  } else if (eraserMode) {
+  if (eraserMode) {
     if(mouseDown){
       element.style.backgroundColor = "rgb(221, 229, 237)"
     }
@@ -46,7 +38,15 @@ gridElements.forEach(element => element.addEventListener('mouseover', () =>{
       element.style.backgroundColor = "rgb(221, 229, 237)"
     }
     return
-  }
+  } else if (rainbowMode){
+    if(mouseDown){
+      element.style.backgroundColor = getRandomColor()
+    }
+    element.onmousedown = function(){
+      element.style.backgroundColor = getRandomColor()
+    }
+    return
+  } 
   if(mouseDown){
     element.style.backgroundColor = color
   }
