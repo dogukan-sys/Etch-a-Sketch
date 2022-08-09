@@ -8,7 +8,7 @@ function createGrid(rows, columns){
     for (j = 1 ; j <= rows ; j++) {
       var row = document.createElement('div')
       row.className = `row row-${j}`
-      row.textContent = `${i} - ${j}`
+      row.textContent = ` `
       column.appendChild(row)
     }
     container.appendChild(column)
@@ -16,4 +16,4 @@ function createGrid(rows, columns){
   document.body.appendChild(container)
 }
 
-createGrid(16,16)
+createGrid(64,64)
