@@ -1,4 +1,10 @@
 var color = "#3e5d58"
+var rainbowMode = false
+var eraserMode = false
+function getRandomColor(){
+  var randomColor = Math.floor(Math.random()*16777215).toString(16);
+  return `#${randomColor}`
+}
 
 const grid = document.createElement("div");
 grid.className = "grid" 
@@ -13,7 +19,7 @@ function createGrid(size){
   }
   content.appendChild(grid)
 }
-createGrid(16)
+createGrid(32)
 
 const gridElements = document.querySelectorAll(".grid-element")
 var mouseDown = 0
@@ -24,6 +30,23 @@ document.body.onmouseup = function(){
   mouseDown--
 }
 gridElements.forEach(element => element.addEventListener('mouseover', () =>{
+  if (rainbowMode){
+    if(mouseDown){
+      element.style.backgroundColor = getRandomColor()
+    }
+    element.onmousedown = function(){
+      element.style.backgroundColor = getRandomColor()
+    }
+    return
+  } else if (eraserMode) {
+    if(mouseDown){
+      element.style.backgroundColor = "rgb(221, 229, 237)"
+    }
+    element.onmousedown = function(){
+      element.style.backgroundColor = "rgb(221, 229, 237)"
+    }
+    return
+  }
   if(mouseDown){
     element.style.backgroundColor = color
   }
@@ -35,8 +58,15 @@ gridElements.forEach(element => element.addEventListener('mouseover', () =>{
 
 const eraser = document.querySelector('.eraser')
 eraser.addEventListener('click', () =>{
-  color = '#dde5ed'
+  eraser.classList.toggle('active')
+  if(eraser.classList.contains('active')){
+    eraserMode = true
+  } else {
+    eraserMode = false
+  }
+
 })
+
 const clear = document.querySelector('.clear')
 clear.addEventListener('click', clearGrid)
 function clearGrid(){
@@ -55,4 +85,16 @@ colorPicker.addEventListener('change', () =>{
 colorPicker.addEventListener('click', () => {
   color = colorPicker.value
   colorPicker.style.backgroundColor = colorPicker.value
+})
+
+const rainbowButton = document.querySelector('.rainbow-mode')
+
+rainbowButton.addEventListener('click', () => {
+  rainbowButton.classList.toggle('active')
+  if (rainbowButton.classList.contains('active')){
+    rainbowMode = true
+  } else {
+    rainbowMode = false
+  }
+  
 })
