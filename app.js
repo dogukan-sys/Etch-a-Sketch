@@ -1,4 +1,4 @@
-var color = "black"
+var color = "#3e5d58"
 
 const grid = document.createElement("div");
 grid.className = "grid" 
@@ -44,3 +44,11 @@ function clearGrid(){
     element.style.backgroundColor = '#dde5ed'
   })
 }
+
+const colorPicker = document.querySelector('.color-picker')
+console.log(colorPicker)
+colorPicker.value = "#3e5d58"
+colorPicker.addEventListener('change', () =>{
+  color = colorPicker.value
+  console.log(color)
+})
