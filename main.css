@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+.content{
+  display: flex;
+  padding: 10vw;
+}
+
 .grid{
   display: grid;
   width: 700px;
@@ -12,7 +17,7 @@
 
 .grid-element{
   text-align: center;
-  border: 0.1px dotted black;
+  border: 1px solid gainsboro;
   -webkit-user-drag: none;
   user-select: none;
   -moz-user-select: none;

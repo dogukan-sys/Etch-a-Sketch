@@ -11,7 +11,7 @@ function createGrid(size){
   }
   content.appendChild(grid)
 }
-createGrid(64)
+createGrid(16)
 
 const gridElements = document.querySelectorAll(".grid-element")
 var mouseDown = 0
